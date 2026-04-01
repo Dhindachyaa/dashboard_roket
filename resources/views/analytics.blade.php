@@ -63,7 +63,11 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     <div class="row g-4 mb-4">
+=======
+    <div class="row g-4">
+>>>>>>> 08aa16e50265fa8fc82636946019cae8d07dca3f
         <div class="col-md-6">
             <div class="card border-0 shadow-sm p-4 rounded-4">
                 <h5 class="fw-bold mb-4">Peak Time Analysis</h5>
@@ -82,6 +86,7 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 
     <div class="row g-4 mb-4">
         <div class="col-md-6">
@@ -120,14 +125,20 @@
             </div>
         </div>
     </div>
+=======
+>>>>>>> 08aa16e50265fa8fc82636946019cae8d07dca3f
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
+<<<<<<< HEAD
     // ==========================================
     // 1. GAUGE CHARTS (Baris 1 - Statis)
     // ==========================================
+=======
+    // --- GAUGE CHARTS (Baris 1) ---
+>>>>>>> 08aa16e50265fa8fc82636946019cae8d07dca3f
     const gaugeOptions = (value, color) => ({
         type: 'doughnut',
         data: {
@@ -146,6 +157,7 @@
     new Chart(document.getElementById('gaugeSVM'), gaugeOptions(98, '#198754'));
     new Chart(document.getElementById('gaugeDT'), gaugeOptions(96, '#198754'));
 
+<<<<<<< HEAD
 
     // ==========================================
     // 2. HISTORICAL CHART (Baris 2 - DINAMIS)
@@ -159,14 +171,30 @@
                 {
                     label: 'PM2.5 (µg/m³)',
                     data: [], 
+=======
+    // --- HISTORICAL CHART (Baris 2) ---
+    new Chart(document.getElementById('chartHistorical'), {
+        type: 'line',
+        data: {
+            labels: ['00:00', '02:00', '04:00', '06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00'],
+            datasets: [
+                {
+                    label: 'PM2.5 (µg/m³)',
+                    data: [20, 18, 15, 25, 45, 30, 55, 35, 45, 20, 30, 25],
+>>>>>>> 08aa16e50265fa8fc82636946019cae8d07dca3f
                     borderColor: '#198754',
                     backgroundColor: 'rgba(25, 135, 84, 0.1)',
                     fill: true,
                     tension: 0.4
                 },
                 {
+<<<<<<< HEAD
                     label: 'Gas CO (ppm)',
                     data: [], 
+=======
+                    label: 'CO (ppm)',
+                    data: [12, 10, 8, 15, 20, 18, 30, 32, 5, 8, 12, 10],
+>>>>>>> 08aa16e50265fa8fc82636946019cae8d07dca3f
                     borderColor: '#ffc107',
                     backgroundColor: 'rgba(255, 193, 7, 0.1)',
                     fill: true,
@@ -177,6 +205,7 @@
         options: { maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
     });
 
+<<<<<<< HEAD
     function fetchHistoricalData() {
         fetch('/api/get-history')
             .then(response => response.json())
@@ -215,11 +244,22 @@
             datasets: [
                 { label: 'Rata-rata PM2.5', data: [], backgroundColor: '#3b82f6', borderRadius: 5 },
                 { label: 'Frekuensi Asap (BAHAYA)', type: 'line', data: [], borderColor: '#ef4444', tension: 0.3 }
+=======
+    // --- PEAK TIME ANALYSIS (Baris 3 Kiri) ---
+    new Chart(document.getElementById('chartPeakTime'), {
+        type: 'bar',
+        data: {
+            labels: ['06:00', '09:00', '12:00', '15:00', '18:00', '21:00'],
+            datasets: [
+                { label: 'Visitor Traffic', data: [5, 10, 13, 14, 12, 8], backgroundColor: '#3b82f6', borderRadius: 5 },
+                { label: 'AQI Decline', type: 'line', data: [1, 2, 8, 10, 15, 5], borderColor: '#ef4444', tension: 0.3 }
+>>>>>>> 08aa16e50265fa8fc82636946019cae8d07dca3f
             ]
         },
         options: { maintainAspectRatio: false }
     });
 
+<<<<<<< HEAD
     function fetchPeakTimeData() {
         fetch('/api/get-peak-time')
             .then(response => response.json())
@@ -246,12 +286,23 @@
             datasets: [{
                 label: 'Predicted AQI (PM2.5)',
                 data: [], 
+=======
+    // --- AI PREDICTION (Baris 3 Kanan) ---
+    new Chart(document.getElementById('chartPrediction'), {
+        type: 'line',
+        data: {
+            labels: [0, 3, 6, 9, 12, 15, 18, 21, 24],
+            datasets: [{
+                label: 'Predicted AQI',
+                data: [60, 45, 30, 50, 80, 110, 120, 90, 70],
+>>>>>>> 08aa16e50265fa8fc82636946019cae8d07dca3f
                 borderColor: '#0ea5e9',
                 backgroundColor: 'rgba(14, 165, 233, 0.2)',
                 fill: true,
                 tension: 0.5
             }]
         },
+<<<<<<< HEAD
         options: { maintainAspectRatio: false, scales: { y: { beginAtZero: true } } }
     });
 
@@ -326,5 +377,12 @@
     setInterval(fetchPeakTimeData, 10000);
     setInterval(fetchPredictionData, 10000);
     setInterval(fetchSensorDetail, 3000); // Cek rekomendasi setiap 3 detik
+=======
+        options: { 
+            maintainAspectRatio: false,
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+>>>>>>> 08aa16e50265fa8fc82636946019cae8d07dca3f
 </script>
 @endsection
